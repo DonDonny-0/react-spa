@@ -10,9 +10,9 @@ const StockFilter = ({
   const { stkQuery, setStkQuery } = useFilter()
 
   return (
-    <div className="mr-10 w-60">
+    <div className="p-2">
       <p className="text-gray-100 text-shadow-gray-500 text-shadow-sm">Stock</p>
-      <div className="flex items-center bg-gray-300 p-3 rounded-xl">
+      <div className="flex items-center bg-teal-600 p-3 rounded-xl">
         {/* <label htmlFor="inStock" className="w-20">In Stock</label> */}
         <input
           type="checkbox"
@@ -20,7 +20,7 @@ const StockFilter = ({
           id="inStock" 
           checked={stkQuery}
           onChange={(e) => setStkQuery(e.target.checked)}
-          className="mx-auto cursor-pointer"
+          className="mx-auto cursor-pointer bg-teal-600"
         />
       </div>
     </div>

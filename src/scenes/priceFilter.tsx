@@ -8,35 +8,37 @@ const PriceFilter = ({
 }) => {
 
   const prices = products.map((product) => product.price)
-  const { minPriceQuery, setMinPriceQuery } = useFilter();
-  const { maxPriceQuery, setMaxPriceQuery } = useFilter();
+  const { minPriceQuery, setMinPriceQuery, maxPriceQuery, setMaxPriceQuery } = useFilter();
 
   return (
-    <div className="flex flex-col">
-      <div className="flex">
-        <p className="text-gray-100 text-shadow-gray-500 text-shadow-sm">min price</p>
-        <p className="ml-15 text-gray-100 text-shadow-gray-500 text-shadow-sm">max price</p>
-      </div>
-      <div className="flex">
+    <div className="flex flex-row justify-between w-full">
+
+      <div className="flex flex-col p-2 w-1/2">
+        <p className="text-gray-100 text-shadow-gray-500 text-shadow-sm w-full">min price</p>
         <input  
           type="number"
           min={Math.min(...prices)}
           max={Math.max(...prices)}
-          value={minPriceQuery}
-          onChange={(e) => setMinPriceQuery(e.target.valueAsNumber)}
-          className="bg-gray-300 p-2 mr-2 rounded-xl"
+          value={Number.isFinite(minPriceQuery) ? minPriceQuery : ""}
+          onChange={(e) => setMinPriceQuery(Number.isFinite(e.target.valueAsNumber) ? e.target.valueAsNumber : NaN)}
+          className="bg-teal-600 text-gray-100 p-2 mr-2 rounded-xl w-full"
           placeholder="min"
         />
+      </div>
+
+      <div className="flex flex-col p-2 w-1/2">
+        <p className="text-gray-100 text-shadow-gray-500 text-shadow-sm w-full">max price</p>
         <input  
           type="number"
           min={Math.min(...prices)}
           max={Math.max(...prices)}
-          value={maxPriceQuery}
-          onChange={(e) => setMaxPriceQuery(e.target.valueAsNumber)}
-          className="bg-gray-300 p-2 mr-10 rounded-xl "
+          value={Number.isFinite(maxPriceQuery) ? maxPriceQuery : ""}
+          onChange={(e) => setMaxPriceQuery(Number.isFinite(e.target.valueAsNumber) ? e.target.valueAsNumber : NaN)}
+          className="bg-teal-600 text-gray-100 p-2 mr-10 rounded-xl w-full"
           placeholder="max"
         />
       </div>
+
     </div>
   )
 }

@@ -3,7 +3,6 @@ import CategoryFilter from "../scenes/categoryFilter";
 import PriceFilter from "../scenes/priceFilter";
 import StockFilter from "../scenes/stockFilter";
 import Search from "../scenes/search";
-import { Dispatch, SetStateAction, useState } from "react";
 
 const FilterSection = (
 { 
@@ -14,17 +13,34 @@ const FilterSection = (
 ) => {
 
   return (
-    <form className="flex flex-row justify-between p-4 border border-gray-600 rounded-xl bg-gray-400">
-      <div className="flex flex-row items-center justify-start w-2xl">
+    <>
+      <form className="hidden lg:flex flex-row items-center justify-evenly p-4 border border-teal-700 rounded-xl bg-teal-800">
         <Search />
         <CategoryFilter products={products} />
         <PriceFilter products={products} />
         <StockFilter products={products} />
-        <button className="p-3 border rounded-2xl mt-2 ml-18 bg-white/30 hover:bg-white/15 transition-colors border-gray-300 cursor-pointer">
-          <p className="text-red-800 font-bold text-lg">Reset</p>
-        </button>
-      </div>
-    </form>
+        <div className="mt-2">
+          <button className="p-3 border rounded-2xl bg-white/30 hover:bg-white/15 transition-colors border-teal-700 cursor-pointer">
+            <p className="text-red-800 font-bold text-lg">Reset</p>
+          </button>
+        </div>
+      </form>
+
+      <form className="lg:hidden flex flex-col justify-evenly p-4 border border-teal-700 rounded-xl bg-teal-800">
+        <div>
+          <Search />
+          <CategoryFilter products={products} />
+          <PriceFilter products={products} />
+          <StockFilter products={products} />
+          <div className="p-2">
+            <button className=" border rounded-2xl w-full mt-8 bg-white/30 hover:bg-white/15 p-2 transition-colors border-teal-700 cursor-pointer">
+              <p className="text-red-800 font-bold text-lg">Reset</p>
+            </button>
+          </div>
+        </div>
+      </form>
+      
+    </>
   )
 }
 

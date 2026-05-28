@@ -8,14 +8,14 @@ const SortingSection = (
   const {ascending, setAscending, sortBy, setSortBy} = useFilter();
 
   return (
-    <div className="flex w-90 justify-evenly">
+    <div className="flex w-90 my-8 justify-evenly">
       <form className="flex items-center">
         <h1 className="text-white">Sort Products by: </h1>
-        <select className="ml-4 cursor-pointer bg-gray-300 rounded-xl p-2" name="rating-price" id="rating-price" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+        <select className="ml-4 cursor-pointer bg-teal-900 text-white rounded-xl p-2" name="rating-price" id="rating-price" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
           <option value="price">Price</option>
           <option value="rating">Rating</option>
         </select>
-        <select className="ml-4 cursor-pointer bg-gray-300 rounded-xl p-2" name="asc-desc" id="asc-desc" value={ascending} onChange={(e) => setAscending(e.target.value)}>
+        <select className="ml-4 cursor-pointer bg-teal-900 text-white rounded-xl p-2" name="asc-desc" id="asc-desc" value={ascending} onChange={(e) => setAscending(e.target.value)}>
           <option value="asc">Ascending</option>
           <option value="desc">Descending</option>
         </select>

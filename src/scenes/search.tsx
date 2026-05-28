@@ -8,7 +8,7 @@ const Search = () => {
   const {searchQuery, setSearchQuery} = useFilter();
 
   return (
-    <div>
+    <div className="p-2">
       <label htmlFor="search" className="pl-1 text-gray-100 text-shadow-gray-500 text-shadow-sm">Search Products</label><br />
       <input 
         ref={inputRef}
@@ -18,7 +18,7 @@ const Search = () => {
         type="search" 
         id="search" 
         name="search" 
-        className="bg-gray-300 p-2 mr-10 rounded-xl"
+        className="bg-teal-600 text-gray-100 p-2 rounded-xl w-full"
       />
     </div>
   )

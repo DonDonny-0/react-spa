@@ -14,7 +14,7 @@ const CategoryFilter = ({
   const {catQuery, setCatQuery} = useFilter();
 
   return (
-    <div>
+    <div className="p-2">
       <label htmlFor="categories" className="pl-1 text-gray-100 text-shadow-gray-500 text-shadow-sm">Category</label>
       <br></br>
       <select 
@@ -24,9 +24,8 @@ const CategoryFilter = ({
         value={catQuery}
         defaultValue="select"
         onChange={(e) => setCatQuery(e.target.value)}
-        className="bg-gray-300 p-2 mr-10 rounded-xl cursor-pointer"
+        className="bg-teal-600 p-2 rounded-xl w-full cursor-pointer text-white"
       >
-        <option value="select">-- select --</option>
         {
           new Set(products.map((product) => product.category)).entries()
           .map( (category) => (

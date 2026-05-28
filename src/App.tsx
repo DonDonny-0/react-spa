@@ -11,12 +11,12 @@ import SortingSection from "./components/sortingSection";
 
 export function App() {
   return (
-    <PageWrapper>
+    <>
+      <Header />
       <Container>
-        <Header />
         <Main />
       </Container>
-    </PageWrapper>
+    </>
   );
 }
 
@@ -60,13 +60,11 @@ function Main() {
 
   return (
     <FilterProvider>
-      <main>
-        <div className="mt-24 grid gap-8">
-          <FilterSection products={products} />
-          <SortingSection products={products} />
-          <ProductList products={products} />
-        </div>
-      </main>
+      <div className="mt-24 w-9/10 mx-auto mb-8">
+        <FilterSection products={products} />
+        <SortingSection products={products} />
+        <ProductList products={products} />
+      </div>
     </FilterProvider>
   );
 }
